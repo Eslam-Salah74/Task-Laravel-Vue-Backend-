@@ -12,8 +12,11 @@ class OrderController extends Controller
 {
     public function index(Request $request)
     {
-        $user = auth()->user();
-        $orders = Order::where('user_id', $user->id)->get();
+        $user = $request->user();
+        $orders = Order::with(['user', 'items.product']) // جلب اليوزر والمنتجات
+            ->where('user_id', $user->id)
+            ->get();
+
         return response()->json($orders);
     }
     public function show(Request $request, $id)

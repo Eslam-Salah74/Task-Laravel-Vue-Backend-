@@ -353,8 +353,7 @@
 		},
 		{
 			"key": "Auth",
-			"value": "",
-			"type": "default"
+			"value": ""
 		}
 	]
 }

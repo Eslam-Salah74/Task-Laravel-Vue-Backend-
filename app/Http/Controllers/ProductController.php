@@ -12,6 +12,12 @@ class ProductController extends Controller
         return Product::all();
     }
 
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+        return response()->json($product);
+    }
+        
     public function store(Request $request)
     {
         $data = $request->validate([
